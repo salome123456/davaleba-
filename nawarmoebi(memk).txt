@@ -1,0 +1,83 @@
+header 1
+
+#pragma once
+#include <iostream>
+#include <string>
+using namespace std;
+class Naw {
+public:
+	string name, author;
+	int crdate;
+	Naw();
+	Naw(string name, string author, int crdate);
+	void printNaw();
+	~Naw();
+
+	
+};
+header 2
+
+#pragma once
+#include "Header 1.h"
+class Nawar :public Naw {
+public:
+	string Genre, type;
+	Nawar(string Genre, string type);
+	Nawar();
+	void printNawar();
+};
+
+mshobeli.cpp
+
+#include "Header 1.h"
+Naw::Naw() {
+	cout << "object created" << endl;
+}
+Naw::Naw(string name, string author, int crdate) {
+	this->name = name;
+	this->author = author;
+	this->crdate = crdate;
+}
+void Naw::printNaw() {
+	cout << name << " " << author << " " << crdate << endl;
+}
+Naw::~Naw() {
+	cout << " object destroyed"<<endl;
+}
+
+shvili.cpp
+
+#include "Header 1.h"
+#include "Header 2.h"
+#include<iostream>
+#include <string>
+using namespace std;
+Nawar::Nawar() {
+	cout << " created";
+}
+Nawar::Nawar(string Genre, string type):
+	Naw(name,  author,  crdate){
+	this->Genre = Genre;
+	this->type = type;
+}
+void Nawar::printNawar() {
+	cout << name << " " << author << " " << crdate << " " << Genre << " " << type << endl;
+}
+
+Nawarmoebi(memk)
+
+#include "Header 1.h"
+#include"Header 2.h"
+#include<string>
+#include <iostream>
+using namespace std;
+int main()
+{
+    Naw n1;
+    Nawar n2;
+    cin >> n1.name >> n1.author >> n1.crdate;
+    cin >> n2.Genre >> n2.type;
+    n1.printNaw();
+    n2.printNawar();
+
+}
